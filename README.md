@@ -2,6 +2,12 @@
 
 Document Server (distributed as ONLYOFFICE Docs starting from v.6.0) and Nextcloud Docker installation will install the preconfigured version of [ONLYOFFICE Document Server][2] connected to Nextcloud to your server running them in Docker containers.
 
+## Notes
+
+* The set_configuration.sh does not seem to work always. Might have to manually set Settings > ONLYOFFICE > "ONLYOFFICE Docs address" to "/ds-vpath/"
+* By default use SQLite (other options need additional containers), the data is persisted in `/var/lib/docker/volumes/<FOLDERNAME>_app_data/_data/data`
+* Pot. use set_configuration option from PR: `docker exec -u www-data app-server php occ config:system:set overwriteprotocol --value=https`
+
 
 ## Requirements
 
@@ -14,7 +20,7 @@ Document Server (distributed as ONLYOFFICE Docs starting from v.6.0) and Nextclo
 1. Get the latest version of this repository running the command:
 
     ```
-    git clone https://github.com/ONLYOFFICE/docker-onlyoffice-nextcloud
+    git clone https://github.com/icezyclon/docker-onlyoffice-nextcloud
     cd docker-onlyoffice-nextcloud
     ```
 
